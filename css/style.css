@@ -81,8 +81,14 @@ ul { list-style: none; }
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: box-shadow var(--transition);
 }
 .navbar.scrolled { box-shadow: 0 10px 30px -12px var(--shadow-color); }
-.logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; }
-.logo span { color: var(--accent-primary); }
+.logo {
+    display: block; height: 38px; aspect-ratio: 497 / 282;
+    background: var(--accent-primary);
+    -webkit-mask: url("../images/logo.png") center / contain no-repeat;
+    mask: url("../images/logo.png") center / contain no-repeat;
+    transition: background var(--transition);
+}
+.logo:hover { background: var(--accent-secondary); }
 .nav-menu { display: flex; align-items: center; gap: 2px; }
 .nav-menu a { padding: 8px 12px; border-radius: 999px; font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); transition: color var(--transition), background var(--transition); }
 .nav-menu a:hover, .nav-menu a.active { color: var(--text-primary); background: var(--bg-elevated); }

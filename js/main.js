@@ -11,42 +11,66 @@
     const $$ = (selector, scope) => Array.from((scope || document).querySelectorAll(selector));
 
     /* ---------- Typing animation ---------- */
-    const typingElement = $("#typing");
-    const messages = [
-        "Passionate About Technology",
-        "Learning and Building Projects",
-        "Aspiring Software Developer"
-    ];
+    /* ---------- Hero bulb and changing typography ---------- */
 
-    if (typingElement) {
-        let messageIndex = 0;
-        let characterIndex = 0;
-        let deleting = false;
+const heroEffect = $("#heroEffect");
 
-        const typeEffect = function () {
-            const current = messages[messageIndex];
-            characterIndex += deleting ? -1 : 1;
-            typingElement.textContent = current.substring(0, characterIndex);
+const heroMessages = [
+    {
+        text: "Curiosity sparks creation",
+        style: "motto-tech"
+    },
+    {
+        text: "Ideas become possibilities",
+        style: "motto-serif"
+    },
+    {
+        text: "Learning. Building. Evolving.",
+        style: "motto-bold"
+    },
+    {
+        text: "A little spark can start a big idea",
+        style: "motto-soft"
+    }
+];
 
-            let speed = deleting ? 40 : 80;
+if (heroEffect) {
 
-            if (!deleting && characterIndex === current.length) {
-                deleting = true;
-                speed = 1500;
-            } else if (deleting && characterIndex === 0) {
-                deleting = false;
-                messageIndex = (messageIndex + 1) % messages.length;
-                speed = 400;
-            }
-            setTimeout(typeEffect, speed);
+    let mottoIndex = 0;
+
+    function showNextMotto() {
+
+        const item = heroMessages[mottoIndex];
+
+        heroEffect.classList.remove(
+            "motto-tech",
+            "motto-serif",
+            "motto-bold",
+            "motto-soft",
+            "motto-visible"
+        );
+
+        const updateMotto = function () {
+            heroEffect.textContent = item.text;
+            heroEffect.classList.add(item.style);
+            heroEffect.classList.add("motto-visible");
+
+            mottoIndex = (mottoIndex + 1) % heroMessages.length;
         };
 
         if (reduceMotion) {
-            typingElement.textContent = messages[0];
+            updateMotto();
         } else {
-            typeEffect();
+            setTimeout(updateMotto, 280);
         }
     }
+
+    showNextMotto();
+
+    if (!reduceMotion) {
+        setInterval(showNextMotto, 3200);
+    }
+}
 
     /* ---------- Theme toggle (remembers choice) ---------- */
     const themeToggle = $("#themeToggle");

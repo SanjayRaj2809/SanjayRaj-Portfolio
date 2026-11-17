@@ -321,3 +321,142 @@ ul { list-style: none; }
     .player-controls { justify-content: center; }
     .eq { justify-content: center; }
 }
+
+
+/* ==========================================
+   HERO - BULB BLINKING AND CHANGING FONT
+========================================== */
+
+.hero-motto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    margin-top: 12px;
+    color: var(--accent-secondary);
+    font-size: clamp(1rem, 2vw, 1.22rem);
+}
+
+.bulb {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    color: #ffe58a;
+    background: radial-gradient(circle, rgba(255,229,138,.24), transparent 70%);
+    text-shadow: 0 0 8px #ffe58a, 0 0 22px #ffbf47;
+    animation: bulb-flicker 2.2s infinite;
+}
+
+@keyframes bulb-flicker {
+    0%, 18%, 22%, 56%, 60%, 100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(255,210,90,.8));
+    }
+
+    20%, 58% {
+        opacity: .45;
+        filter: none;
+    }
+}
+
+#heroEffect {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity .28s ease, transform .28s ease;
+}
+
+#heroEffect.motto-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#heroEffect.motto-tech {
+    font-family: var(--font-mono);
+}
+
+#heroEffect.motto-serif {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
+
+#heroEffect.motto-bold {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -.035em;
+}
+
+#heroEffect.motto-soft {
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 500;
+    letter-spacing: .04em;
+}
+
+
+/* ==========================================
+   CONTACT - CIRCULAR SOCIAL ICONS
+========================================== */
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: clamp(24px, 6vw, 72px);
+    padding: 16px 0 8px;
+}
+
+.contact-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 82px;
+    color: var(--text-secondary);
+    font-size: .9rem;
+    font-weight: 600;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.contact-icon-link svg {
+    width: 66px;
+    height: 66px;
+    padding: 18px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    background: var(--bg-card);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: border-color var(--transition),
+                background var(--transition),
+                box-shadow var(--transition);
+}
+
+.contact-icon-link:hover {
+    color: var(--accent-primary);
+    transform: translateY(-6px);
+}
+
+.contact-icon-link:hover svg {
+    border-color: var(--accent-primary);
+    background: var(--bg-elevated);
+    box-shadow: 0 0 28px color-mix(in srgb, var(--accent-primary) 25%, transparent);
+}
+
+@media (max-width: 480px) {
+    .contact-links {
+        gap: 24px 30px;
+    }
+
+    .contact-icon-link svg {
+        width: 58px;
+        height: 58px;
+        padding: 15px;
+    }
+}

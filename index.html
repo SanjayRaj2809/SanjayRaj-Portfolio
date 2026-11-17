@@ -50,36 +50,59 @@
     <main>
 
         <!-- HERO -->
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <p class="status"><span class="status-dot"></span>Open to opportunities</p>
-                <h1>SANJAYRAJ <span class="highlight">RA</span></h1>
-                <h2>Aspiring Software Developer</h2>
-                <p class="typing-text"><span id="typing"></span><span class="cursor">|</span></p>
-                <p class="hero-description">
-                    An aspiring developer exploring ideas and turning them into reality through code.
-                </p>
+        
+<section class="hero" id="hero">
+    <div class="hero-content">
 
-                <div class="hero-buttons">
-                    <a href="#journey" class="btn btn-primary">Explore My Journey →</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
-                    <a href="resume.pdf" class="btn btn-ghost" download>Resume ↓</a>
-                </div>
+        <p class="status">
+            <span class="status-dot"></span>
+            Open to opportunities
+        </p>
 
-                <ul class="hero-stats">
-                    <li><strong>8.32</strong><span>CGPA</span></li>
-                    <li><strong>2</strong><span>Projects</span></li>
-                    <li><strong>2</strong><span>Certificates</span></li>
-                    <li><strong>Coimbatore</strong><span>Tamil Nadu, IN</span></li>
-                </ul>
-            </div>
+        <h1>SANJAYRAJ</h1>
 
-            <div class="hero-image">
-                <div class="media" data-placeholder="SR">
-                    <img src="images/hero/profile.jpg" alt="SANJAYRAJ RA profile photograph">
-                </div>
-            </div>
-        </section>
+        <h2>Aspiring Software Developer</h2>
+
+        <p class="hero-motto">
+            <span class="bulb" aria-hidden="true">✦</span>
+            <span id="heroEffect">Curiosity sparks creation</span>
+        </p>
+
+        <p class="hero-description">
+            An aspiring developer exploring ideas and turning them into reality through code.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#journey" class="btn btn-primary">
+                Explore My Journey →
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
+
+            <a href="resume.pdf" class="btn btn-ghost" download>
+                Resume ↓
+            </a>
+        </div>
+
+        <ul class="hero-stats">
+            <li><strong>8.32</strong><span>CGPA</span></li>
+            <li><strong>2</strong><span>Projects</span></li>
+            <li><strong>2</strong><span>Certificates</span></li>
+            <li><strong>Coimbatore</strong><span>Tamil Nadu, IN</span></li>
+        </ul>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="media" data-placeholder="SR">
+            <img src="images/hero/profile.png"
+     alt="SANJAYRAJ profile photograph">
+        </div>
+    </div>
+</section>
+
 
 
         <!-- JOURNEY -->
@@ -166,7 +189,9 @@
             <div class="projects-grid">
                 <article class="project-card spot reveal">
                     <div class="project-image media" data-placeholder="THIRD EYE">
-                        <img src="images/projects/third-eye.jpg" alt="Third Eye for Blind project" loading="lazy">
+                        <img src="images/projects/third-eye.svg"
+                        alt="Third Eye for Blind project" 
+                        loading="lazy">
                     </div>
                     <div class="project-details">
                         <span class="project-number">PROJECT 01</span>
@@ -180,7 +205,9 @@
 
                 <article class="project-card spot reveal">
                     <div class="project-image media" data-placeholder="JOB BOARD">
-                        <img src="images/projects/job-board.jpg" alt="Job Board project" loading="lazy">
+                        <img src="images/projects/job-board.svg"
+                        alt="Job Board project"
+                        loading="lazy">
                     </div>
                     <div class="project-details">
                         <span class="project-number">PROJECT 02</span>
@@ -375,36 +402,83 @@
 
 
         <!-- HOBBIES -->
-        <section class="section hobbies" id="hobbies">
-            <div class="section-heading reveal">
-                <p class="section-label">06 / Free time</p>
-                <h2>My <span>Hobbies</span></h2>
-                <p>Things I enjoy doing outside my professional life. Click a card to expand it.</p>
-            </div>
+        <!-- HOBBIES -->
+<section class="section hobbies" id="hobbies">
 
-            <div class="hobbies-grid">
-                <button class="hobby-card tall reveal" data-lightbox="images/hobbies/drawing.jpg" data-title="Drawing &amp; Art" data-text="Drawing is a calm way for me to unwind and express ideas creatively.">
-                    <span class="media" data-placeholder="DRAWING"><img src="images/hobbies/drawing.jpg" alt="Drawing and art" loading="lazy"></span>
-                    <span class="hobby-label">Drawing &amp; Art</span>
-                </button>
+    <div class="section-heading reveal">
+        <p class="section-label">06 / Free time</p>
+        <h2>My <span>Hobbies</span></h2>
+        <p>Things I enjoy doing outside my professional life.</p>
+    </div>
 
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/gaming.jpg" data-title="Gaming" data-text="One of my favourite ways to unwind - Assassin's Creed, GTA, RDR 2 and Valorant.">
-                    <span class="media" data-placeholder="GAMING"><img src="images/hobbies/gaming.jpg" alt="Gaming" loading="lazy"></span>
-                    <span class="hobby-label">Gaming</span>
-                </button>
+    <div class="hobbies-grid">
 
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/badminton.jpg" data-title="Playing Sports" data-text="I enjoy playing and following sports, with badminton and cricket as my favourites.">
-                    <span class="media" data-placeholder="SPORTS"><img src="images/hobbies/badminton.jpg" alt="Playing badminton" loading="lazy"></span>
-                    <span class="hobby-label">Playing Sports</span>
-                </button>
+        <button class="hobby-card tall reveal"
+            data-lightbox="images/hobbies/drawing.svg"
+            data-title="Drawing &amp; Art"
+            data-text="Drawing is a calm way for me to unwind and express ideas creatively.">
 
-                <button class="hobby-card tall reveal" data-lightbox="images/hobbies/movies.jpg" data-title="Movies &amp; Series" data-text="I enjoy stories across genres - Peaky Blinders, Meiyazhagan, Chhichhore and Harry Potter.">
-                    <span class="media" data-placeholder="MOVIES"><img src="images/hobbies/movies.jpg" alt="Watching movies" loading="lazy"></span>
-                    <span class="hobby-label">Movies &amp; Series</span>
-                </button>
-            </div>
-        </section>
+            <span class="media" data-placeholder="DRAWING">
+                <img src="images/hobbies/drawing.svg" alt="Drawing and art">
+            </span>
 
+            <span class="hobby-label">Drawing &amp; Art</span>
+        </button>
+
+
+        <button class="hobby-card reveal"
+            data-lightbox="images/hobbies/gaming.svg"
+            data-title="Gaming"
+            data-text="Assassin's Creed, GTA, RDR 2 and Valorant are among my favourites.">
+
+            <span class="media" data-placeholder="GAMING">
+                <img src="images/hobbies/gaming.svg" alt="Gaming">
+            </span>
+
+            <span class="hobby-label">Gaming</span>
+        </button>
+
+
+        <button class="hobby-card reveal"
+            data-lightbox="images/hobbies/sports.svg"
+            data-title="Playing Sports"
+            data-text="Badminton and cricket are my favourite sports.">
+
+            <span class="media" data-placeholder="SPORTS">
+                <img src="images/hobbies/sports.svg" alt="Playing sports">
+            </span>
+
+            <span class="hobby-label">Playing Sports</span>
+        </button>
+
+
+        <button class="hobby-card tall reveal"
+            data-lightbox="images/hobbies/movies.svg"
+            data-title="Movies &amp; Series"
+            data-text="Peaky Blinders, Meiyazhagan, Chhichhore and Harry Potter are among my favourites.">
+
+            <span class="media" data-placeholder="MOVIES">
+                <img src="images/hobbies/movies.svg" alt="Movies and series">
+            </span>
+
+            <span class="hobby-label">Movies &amp; Series</span>
+        </button>
+
+
+        <button class="hobby-card reveal"
+            data-lightbox="images/hobbies/reading.svg"
+            data-title="Reading Books"
+            data-text="Reading gives me new perspectives and ideas.">
+
+            <span class="media" data-placeholder="READING">
+                <img src="images/hobbies/reading.svg" alt="Reading books">
+            </span>
+
+            <span class="hobby-label">Reading Books</span>
+        </button>
+
+    </div>
+</section>
 
         <!-- CERTIFICATES -->
         <section class="section certificates" id="certificates">
@@ -436,13 +510,62 @@
                 <p>Have an opportunity, an idea or just want to connect? Feel free to reach out.</p>
             </div>
 
-            <div class="contact-content">
-                <a href="mailto:sanjayraj2809@gmail.com" class="contact-item spot reveal"><span>Email</span><strong>sanjayraj2809@gmail.com</strong></a>
-                <a href="tel:+919345284075" class="contact-item spot reveal"><span>Phone</span><strong>+91 93452 84075</strong></a>
-                <a href="https://wa.me/919345284075" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>WhatsApp</span><strong>Send a Message</strong></a>
-                <a href="https://www.linkedin.com/in/sanjayraj-ra" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>LinkedIn</span><strong>Connect with me</strong></a>
-                <a href="https://github.com/SanjayRaj2809" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>GitHub</span><strong>Explore my projects</strong></a>
-            </div>
+            <div class="contact-links">
+
+    <a class="contact-icon-link"
+       href="mailto:sanjayraj2809@gmail.com"
+       aria-label="Gmail">
+
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m3 7 9 6 9-6"/>
+        </svg>
+        <span>Gmail</span>
+    </a>
+
+
+    <a class="contact-icon-link"
+       href="https://wa.me/919345284075"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="WhatsApp">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20l.9-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/>
+            <path d="M8.3 8.1c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.5 2 1.9"/>
+        </svg>
+        <span>WhatsApp</span>
+    </a>
+
+
+    <a class="contact-icon-link"
+       href="https://www.linkedin.com/in/sanjayraj-ra"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="LinkedIn">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+        </svg>
+        <span>LinkedIn</span>
+    </a>
+
+
+    <a class="contact-icon-link"
+       href="https://github.com/SanjayRaj2809"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="GitHub">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <span>GitHub</span>
+    </a>
+
+</div>
         </section>
 
     </main>
@@ -488,7 +611,7 @@
 
         <div class="footer-bottom">
             <p>Built with HTML, CSS &amp; JS | Deployed via GitHub Actions</p>
-            <p>© <span id="currentYear">2026</span> SANJAYRAJ RA. All rights reserved.</p>
+            <p>© <span id="currentYear">2026</span> SANJAYRAJ. All rights reserved.</p>
         </div>
     </footer>
 

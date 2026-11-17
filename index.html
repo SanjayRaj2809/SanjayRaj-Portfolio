@@ -1,28 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="SANJAYRAJ RA - Aspiring Software Developer Portfolio">
     <meta name="author" content="SANJAYRAJ RA">
-
+    <meta name="theme-color" content="#05070d">
     <title>SANJAYRAJ RA | Portfolio</title>
-
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305070d'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' text-anchor='middle' fill='%234d8dff'%3ESR%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.documentElement.classList.add("js");
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) { document.documentElement.setAttribute("data-theme", savedTheme); }
+        } catch (e) { /* storage unavailable */ }
+    </script>
 </head>
 
 <body>
 
     <!-- NAVIGATION -->
     <header class="navbar" id="navbar">
-
         <a href="#hero" class="logo">SR<span>.</span></a>
 
-        <nav class="nav-menu" id="navMenu">
+        <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
             <a href="#hero">Home</a>
             <a href="#journey">Journey</a>
             <a href="#skills">Skills</a>
@@ -35,620 +42,400 @@
         </nav>
 
         <div class="nav-actions">
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                ☀
-            </button>
-
-            <button id="menuToggle" class="menu-toggle" aria-label="Open navigation">
-                ☰
-            </button>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+            <button id="menuToggle" class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMenu">☰</button>
         </div>
-
     </header>
 
     <main>
 
         <!-- HERO -->
         <section class="hero" id="hero">
-
-            <div class="hero-content reveal">
-
-                <p class="hero-greeting">
-                    HELLO, WELCOME TO MY PORTFOLIO
-                </p>
-
-                <h1>
-                    I'M <span class="highlight">SANJAYRAJ RA</span>
-                </h1>
-
+            <div class="hero-content">
+                <p class="status"><span class="status-dot"></span>Open to opportunities</p>
+                <h1>SANJAYRAJ <span class="highlight">RA</span></h1>
                 <h2>Aspiring Software Developer</h2>
-
-                <h3 class="typing-text">
-                    <span id="typing"></span><span class="cursor">|</span>
-                </h3>
-
+                <p class="typing-text"><span id="typing"></span><span class="cursor">|</span></p>
                 <p class="hero-description">
-                    An aspiring developer exploring ideas and
-                    turning them into reality through code.
+                    An aspiring developer exploring ideas and turning them into reality through code.
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        Contact Me
-                    </a>
-
-                    <a href="resume.pdf" class="btn btn-outline" download>
-                        Download Resume
-                    </a>
+                    <a href="#journey" class="btn btn-primary">Explore My Journey →</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <a href="resume.pdf" class="btn btn-ghost" download>Resume ↓</a>
                 </div>
 
-                <p class="hero-location">
-                    COIMBATORE, TAMIL NADU
-                </p>
-
+                <ul class="hero-stats">
+                    <li><strong>8.32</strong><span>CGPA</span></li>
+                    <li><strong>2</strong><span>Projects</span></li>
+                    <li><strong>2</strong><span>Certificates</span></li>
+                    <li><strong>Coimbatore</strong><span>Tamil Nadu, IN</span></li>
+                </ul>
             </div>
 
-            <div class="hero-image reveal">
-                <img
-                    src="images/hero/profile.jpg"
-                    alt="SANJAYRAJ RA profile photograph"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                >
-
-                <div class="image-placeholder">
-                    <span>SR</span>
-                    <p>ADD YOUR PROFILE PHOTO</p>
+            <div class="hero-image">
+                <div class="media" data-placeholder="SR">
+                    <img src="images/hero/profile.jpg" alt="SANJAYRAJ RA profile photograph">
                 </div>
             </div>
-
         </section>
 
 
         <!-- JOURNEY -->
         <section class="section journey" id="journey">
-
             <div class="section-heading reveal">
-                <p class="section-label">MY BACKGROUND</p>
+                <p class="section-label">01 / Background</p>
                 <h2>Professional <span>Journey</span></h2>
                 <p>My education and experiences that shape my career.</p>
             </div>
 
             <div class="timeline">
-
                 <article class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
+                    <div class="timeline-card spot">
                         <span class="timeline-date">2022 - 2026</span>
-
                         <h3>B.E. Electronics and Communication Engineering</h3>
-
                         <h4>Sri Krishna College of Engineering and Technology</h4>
-
-                        <p>
-                            Completed my undergraduate journey in Electronics
-                            and Communication Engineering, developing a
-                            foundation in technology, analytical thinking
-                            and problem-solving.
-                        </p>
-
-                        <p class="timeline-highlight">
-                            CGPA: 8.32
-                        </p>
+                        <p>Completed my undergraduate journey in Electronics and Communication Engineering.</p>
+                        <div class="timeline-more"><div>
+                            <p>Built a foundation in technology, analytical thinking and problem-solving.</p>
+                            <p class="timeline-highlight">CGPA: 8.32</p>
+                        </div></div>
+                        <button class="toggle-more" aria-expanded="false">Show more</button>
                     </div>
                 </article>
 
                 <article class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-                        <span class="timeline-date">MAY - JULY 2025</span>
-
+                    <div class="timeline-card spot">
+                        <span class="timeline-date">May - July 2025</span>
                         <h3>Graduate Trainee</h3>
-
                         <h4>Accenture ATCI - Summer Internship</h4>
-
-                        <p>
-                            Gained exposure to ticket management workflows,
-                            ticket assignment and how employees handle
-                            and respond to service requests.
-                        </p>
+                        <p>Gained exposure to ticket management workflows and ticket assignment.</p>
+                        <div class="timeline-more"><div>
+                            <p>Learned how employees handle and respond to service requests.</p>
+                        </div></div>
+                        <button class="toggle-more" aria-expanded="false">Show more</button>
                     </div>
                 </article>
 
                 <article class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-                        <span class="timeline-date">AUGUST 2026 - PRESENT</span>
-
+                    <div class="timeline-card spot">
+                        <span class="timeline-date">August 2026 - Present</span>
                         <h3>Software Developer Trainee - Impacters</h3>
-
                         <h4>PSIOG</h4>
-
-                        <p>
-                            Exploring software development through practical
-                            learning in Git and GitHub, OOP concepts, C++,
-                            SQL Server, HTML, CSS and JavaScript.
-                        </p>
+                        <p>Exploring software development through practical, hands-on learning.</p>
+                        <div class="timeline-more"><div>
+                            <p>Git and GitHub, OOP concepts, C++, SQL Server, HTML, CSS and JavaScript.</p>
+                        </div></div>
+                        <button class="toggle-more" aria-expanded="false">Show more</button>
                     </div>
                 </article>
-
             </div>
-
         </section>
 
 
         <!-- SKILLS -->
         <section class="section skills" id="skills">
-
             <div class="section-heading reveal">
-                <p class="section-label">WHAT I WORK WITH</p>
+                <p class="section-label">02 / Stack</p>
                 <h2>Technical <span>Skills</span></h2>
                 <p>Technologies and tools I have learned and explored.</p>
             </div>
 
             <div class="skills-grid">
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">C++</span>
-                    <h3>C++</h3>
-                    <p>Programming Language</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">J</span>
-                    <h3>Java</h3>
-                    <p>Programming Language</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">H5</span>
-                    <h3>HTML5</h3>
-                    <p>Web Structure</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">C3</span>
-                    <h3>CSS3</h3>
-                    <p>Web Styling</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">JS</span>
-                    <h3>JavaScript</h3>
-                    <p>Web Interactivity</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">SQL</span>
-                    <h3>SQL</h3>
-                    <p>Database Management</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">G</span>
-                    <h3>Git</h3>
-                    <p>Version Control</p>
-                </article>
-
-                <article class="skill-card reveal">
-                    <span class="skill-icon">GH</span>
-                    <h3>GitHub</h3>
-                    <p>Code Hosting</p>
-                </article>
-
+                <article class="skill-card spot reveal"><span class="skill-icon">C++</span><h3>C++</h3><p>Programming Language</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">J</span><h3>Java</h3><p>Programming Language</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">H5</span><h3>HTML5</h3><p>Web Structure</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">C3</span><h3>CSS3</h3><p>Web Styling</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">JS</span><h3>JavaScript</h3><p>Web Interactivity</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">SQL</span><h3>SQL</h3><p>Database Management</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">G</span><h3>Git</h3><p>Version Control</p></article>
+                <article class="skill-card spot reveal"><span class="skill-icon">GH</span><h3>GitHub</h3><p>Code Hosting</p></article>
             </div>
-
         </section>
 
 
         <!-- PROJECTS -->
         <section class="section projects" id="projects">
-
             <div class="section-heading reveal">
-                <p class="section-label">WHAT I HAVE BUILT</p>
+                <p class="section-label">03 / Work</p>
                 <h2>Featured <span>Projects</span></h2>
                 <p>Projects that reflect my learning and problem-solving.</p>
             </div>
 
             <div class="projects-grid">
-
-                <article class="project-card reveal">
-
-                    <div class="project-image">
-                        <img
-                            src="images/projects/third-eye.jpg"
-                            alt="Third Eye for Blind project"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
-                        <div class="image-placeholder">
-                            <span>THIRD EYE</span>
-                        </div>
+                <article class="project-card spot reveal">
+                    <div class="project-image media" data-placeholder="THIRD EYE">
+                        <img src="images/projects/third-eye.jpg" alt="Third Eye for Blind project" loading="lazy">
                     </div>
-
                     <div class="project-details">
                         <span class="project-number">PROJECT 01</span>
-
                         <h3>Third Eye for Blind</h3>
-
-                        <p>
-                            An assistive system designed to support visually
-                            impaired people using smart gloves and goggles.
-                            Sensors detect nearby obstacles and provide
-                            alerts to the user.
-                        </p>
-
+                        <p>An assistive system designed to support visually impaired people using smart gloves and goggles. Sensors detect nearby obstacles and provide alerts to the user.</p>
                         <div class="project-tech">
-                            <span>Arduino Nano</span>
-                            <span>Ultrasonic Sensors</span>
-                            <span>IR Sensors</span>
-                            <span>Vibration Motors</span>
+                            <span>Arduino Nano</span><span>Ultrasonic Sensors</span><span>IR Sensors</span><span>Vibration Motors</span>
                         </div>
                     </div>
-
                 </article>
 
-                <article class="project-card reveal">
-
-                    <div class="project-image">
-                        <img
-                            src="images/projects/job-board.jpg"
-                            alt="Job Board project"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                        >
-                        <div class="image-placeholder">
-                            <span>JOB BOARD</span>
-                        </div>
+                <article class="project-card spot reveal">
+                    <div class="project-image media" data-placeholder="JOB BOARD">
+                        <img src="images/projects/job-board.jpg" alt="Job Board project" loading="lazy">
                     </div>
-
                     <div class="project-details">
                         <span class="project-number">PROJECT 02</span>
-
                         <h3>Job Board</h3>
-
-                        <p>
-                            A basic job board web application developed to
-                            explore website structure, interactive features
-                            and database integration.
-                        </p>
-
+                        <p>A basic job board web application developed to explore website structure, interactive features and database integration.</p>
                         <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>MongoDB</span>
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>MongoDB</span>
                         </div>
                     </div>
-
                 </article>
-
             </div>
-
         </section>
 
 
         <!-- INTERESTS -->
         <section class="section interests" id="interests">
-
             <div class="section-heading reveal">
-                <p class="section-label">BEYOND TECHNOLOGY</p>
+                <p class="section-label">04 / Beyond code</p>
                 <h2>My Personal <span>Interests</span></h2>
                 <p>A few things that keep me inspired and entertained.</p>
             </div>
 
             <div class="interests-grid">
-
-                <article class="interest-card reveal">
-                    <div class="interest-image">
-                        <img src="images/interests/music.jpg" alt="Music"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
-                        <span>01</span>
+                <article class="interest-card spot wide reveal">
+                    <div class="interest-image media" data-placeholder="MUSIC">
+                        <img src="images/interests/music.jpg" alt="Music" loading="lazy">
                     </div>
-
                     <div class="interest-content">
-                        <span class="interest-category">MUSIC</span>
+                        <span class="interest-category">01 · Music</span>
                         <h3>Music</h3>
-                        <p>
-                            Music is something I enjoy every day.
-                            I especially love Anirudh's music,
-                            melody tracks and powerful bass beats.
-                        </p>
+                        <p>Music is something I enjoy every day. I especially love Anirudh's music, melody tracks and powerful bass beats.</p>
                     </div>
                 </article>
 
-                <article class="interest-card reveal">
-                    <div class="interest-image">
-                        <img src="images/interests/food.jpg" alt="Food"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
-                        <span>02</span>
+                <article class="interest-card spot reveal">
+                    <div class="interest-image media" data-placeholder="FOOD">
+                        <img src="images/interests/food.jpg" alt="Food" loading="lazy">
                     </div>
-
                     <div class="interest-content">
-                        <span class="interest-category">FOOD</span>
+                        <span class="interest-category">02 · Food</span>
                         <h3>Food</h3>
-                        <p>
-                            Exploring good food is always enjoyable.
-                            Biryani is one of my all-time favourites.
-                        </p>
+                        <p>Exploring good food is always enjoyable. Biryani is one of my all-time favourites.</p>
                     </div>
                 </article>
 
-                <article class="interest-card reveal">
-                    <div class="interest-image">
-                        <img src="images/interests/movies.jpg" alt="Movies and series"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
-                        <span>03</span>
+                <article class="interest-card spot reveal">
+                    <div class="interest-image media" data-placeholder="MOVIES">
+                        <img src="images/interests/movies.jpg" alt="Movies and series" loading="lazy">
                     </div>
-
                     <div class="interest-content">
-                        <span class="interest-category">ENTERTAINMENT</span>
-                        <h3>Movies & Series</h3>
-                        <p>
-                            I enjoy stories across different genres.
-                            Peaky Blinders, Meiyazhagan, Chhichhore
-                            and Harry Potter are among my favourites.
-                        </p>
+                        <span class="interest-category">03 · Entertainment</span>
+                        <h3>Movies &amp; Series</h3>
+                        <p>Peaky Blinders, Meiyazhagan, Chhichhore and Harry Potter are among my favourites.</p>
                     </div>
                 </article>
 
-                <article class="interest-card reveal">
-                    <div class="interest-image">
-                        <img src="images/interests/gaming.jpg" alt="Gaming"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
-                        <span>04</span>
+                <article class="interest-card spot reveal">
+                    <div class="interest-image media" data-placeholder="GAMING">
+                        <img src="images/interests/gaming.jpg" alt="Gaming" loading="lazy">
                     </div>
-
                     <div class="interest-content">
-                        <span class="interest-category">GAMING</span>
+                        <span class="interest-category">04 · Gaming</span>
                         <h3>Gaming</h3>
-                        <p>
-                            Gaming is one of my favourite ways to unwind.
-                            Assassin's Creed is my favourite, along with
-                            GTA, RDR 2 and Valorant.
-                        </p>
+                        <p>Assassin's Creed is my favourite, along with GTA, RDR 2 and Valorant.</p>
                     </div>
                 </article>
 
-                <article class="interest-card reveal">
-                    <div class="interest-image">
-                        <img src="images/interests/sports.jpg" alt="Sports"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
-                        <span>05</span>
+                <article class="interest-card spot reveal">
+                    <div class="interest-image media" data-placeholder="SPORTS">
+                        <img src="images/interests/sports.jpg" alt="Sports" loading="lazy">
                     </div>
-
                     <div class="interest-content">
-                        <span class="interest-category">SPORTS</span>
+                        <span class="interest-category">05 · Sports</span>
                         <h3>Sports</h3>
-                        <p>
-                            I enjoy playing and following sports.
-                            Badminton and cricket are my favourites.
-                        </p>
+                        <p>I enjoy playing and following sports. Badminton and cricket are my favourites.</p>
                     </div>
                 </article>
-
             </div>
-
         </section>
 
 
         <!-- FAMILY -->
         <section class="section family" id="family">
-
             <div class="section-heading reveal">
-                <p class="section-label">MY BIGGEST SUPPORT</p>
+                <p class="section-label">05 / Support</p>
                 <h2>My <span>Family</span></h2>
-                <p>The people who inspire me and stand beside me.</p>
+                <p>The people who inspire me and stand beside me. Tap a card to flip it.</p>
             </div>
 
-            <div class="family-layout reveal">
+            <div class="family-photo media reveal" data-placeholder="FAMILY PHOTO">
+                <img src="images/family/family.jpg" alt="My family" loading="lazy">
+            </div>
 
-                <div class="family-photo">
-                    <img
-                        src="images/family/family.jpg"
-                        alt="My family"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                    >
-
-                    <div class="image-placeholder">
-                        <span>FAMILY</span>
-                        <p>ADD YOUR FAMILY PHOTO</p>
+            <div class="family-details">
+                <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="My Father - flip card">
+                    <div class="flip-inner">
+                        <div class="flip-front media" data-placeholder="FATHER">
+                            <img src="images/family/father.jpg" alt="My father" loading="lazy">
+                            <span class="flip-label">My Father</span>
+                        </div>
+                        <div class="flip-back">
+                            <span class="family-role">Father</span>
+                            <p>A supportive person who always helps me, guides me and never complains about the challenges along the way.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="family-details">
-
-                    <article class="family-card">
-                        <span class="family-role">FATHER</span>
-                        <h3>My Father</h3>
-                        <p>
-                            A supportive person who always helps me,
-                            guides me and never complains about
-                            the challenges along the way.
-                        </p>
-                    </article>
-
-                    <article class="family-card">
-                        <span class="family-role">MOTHER</span>
-                        <h3>My Mother</h3>
-                        <p>
-                            The reason behind much of my success.
-                            Her love, care and constant encouragement
-                            motivate me to achieve more.
-                        </p>
-                    </article>
-
-                    <article class="family-card">
-                        <span class="family-role">YOUNGER BROTHER</span>
-                        <h3>My Brother</h3>
-                        <p>
-                            My adventurous childhood partner,
-                            someone who shares memories with me
-                            and gives me guidance.
-                        </p>
-                    </article>
-
+                <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="My Mother - flip card">
+                    <div class="flip-inner">
+                        <div class="flip-front media" data-placeholder="MOTHER">
+                            <img src="images/family/mother.jpg" alt="My mother" loading="lazy">
+                            <span class="flip-label">My Mother</span>
+                        </div>
+                        <div class="flip-back">
+                            <span class="family-role">Mother</span>
+                            <p>The reason behind much of my success. Her love, care and constant encouragement motivate me to achieve more.</p>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="flip-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="My Brother - flip card">
+                    <div class="flip-inner">
+                        <div class="flip-front media" data-placeholder="BROTHER">
+                            <img src="images/family/brother.jpg" alt="My younger brother" loading="lazy">
+                            <span class="flip-label">My Brother</span>
+                        </div>
+                        <div class="flip-back">
+                            <span class="family-role">Younger Brother</span>
+                            <p>My adventurous childhood partner, someone who shares memories with me and gives me guidance.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </section>
 
 
         <!-- HOBBIES -->
         <section class="section hobbies" id="hobbies">
-
             <div class="section-heading reveal">
-                <p class="section-label">HOW I SPEND MY TIME</p>
+                <p class="section-label">06 / Free time</p>
                 <h2>My <span>Hobbies</span></h2>
-                <p>Things I enjoy doing outside my professional life.</p>
+                <p>Things I enjoy doing outside my professional life. Click a card to expand it.</p>
             </div>
 
             <div class="hobbies-grid">
-
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/drawing.jpg"
-                        aria-label="View drawing hobby image">
-                    <img src="images/hobbies/drawing.jpg" alt="Drawing and art">
-                    <span>Drawing & Art</span>
+                <button class="hobby-card tall reveal" data-lightbox="images/hobbies/drawing.jpg" data-title="Drawing &amp; Art" data-text="Drawing is a calm way for me to unwind and express ideas creatively.">
+                    <span class="media" data-placeholder="DRAWING"><img src="images/hobbies/drawing.jpg" alt="Drawing and art" loading="lazy"></span>
+                    <span class="hobby-label">Drawing &amp; Art</span>
                 </button>
 
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/gaming.jpg"
-                        aria-label="View gaming hobby image">
-                    <img src="images/hobbies/gaming.jpg" alt="Gaming">
-                    <span>Gaming</span>
+                <button class="hobby-card reveal" data-lightbox="images/hobbies/gaming.jpg" data-title="Gaming" data-text="One of my favourite ways to unwind - Assassin's Creed, GTA, RDR 2 and Valorant.">
+                    <span class="media" data-placeholder="GAMING"><img src="images/hobbies/gaming.jpg" alt="Gaming" loading="lazy"></span>
+                    <span class="hobby-label">Gaming</span>
                 </button>
 
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/badminton.jpg"
-                        aria-label="View badminton hobby image">
-                    <img src="images/hobbies/badminton.jpg" alt="Playing badminton">
-                    <span>Playing Sports</span>
+                <button class="hobby-card reveal" data-lightbox="images/hobbies/badminton.jpg" data-title="Playing Sports" data-text="I enjoy playing and following sports, with badminton and cricket as my favourites.">
+                    <span class="media" data-placeholder="SPORTS"><img src="images/hobbies/badminton.jpg" alt="Playing badminton" loading="lazy"></span>
+                    <span class="hobby-label">Playing Sports</span>
                 </button>
 
-                <button class="hobby-card reveal" data-lightbox="images/hobbies/movies.jpg"
-                        aria-label="View movies hobby image">
-                    <img src="images/hobbies/movies.jpg" alt="Watching movies">
-                    <span>Movies & Series</span>
+                <button class="hobby-card tall reveal" data-lightbox="images/hobbies/movies.jpg" data-title="Movies &amp; Series" data-text="I enjoy stories across genres - Peaky Blinders, Meiyazhagan, Chhichhore and Harry Potter.">
+                    <span class="media" data-placeholder="MOVIES"><img src="images/hobbies/movies.jpg" alt="Watching movies" loading="lazy"></span>
+                    <span class="hobby-label">Movies &amp; Series</span>
                 </button>
-
             </div>
-
         </section>
 
 
         <!-- CERTIFICATES -->
         <section class="section certificates" id="certificates">
-
             <div class="section-heading reveal">
-                <p class="section-label">MY ACHIEVEMENTS</p>
-                <h2>Certificates & <span>Recognition</span></h2>
+                <p class="section-label">07 / Milestones</p>
+                <h2>Certificates &amp; <span>Recognition</span></h2>
                 <p>Learning experiences and milestones.</p>
             </div>
 
             <div class="certificate-grid">
-
-                <button class="certificate-card reveal"
-                        data-lightbox="images/certificates/accenture.jpg">
-                    <img src="images/certificates/accenture.jpg"
-                         alt="Accenture Internship Certificate">
-                    <span>Accenture Internship Program</span>
+                <button class="certificate-card spot reveal" data-lightbox="images/certificates/accenture.jpg" data-title="Accenture Internship Program">
+                    <span class="media" data-placeholder="ACCENTURE"><img src="images/certificates/accenture.jpg" alt="Accenture Internship Certificate" loading="lazy"></span>
+                    <span class="certificate-label">Accenture Internship Program</span>
                 </button>
 
-                <button class="certificate-card reveal"
-                        data-lightbox="images/certificates/java.jpg">
-                    <img src="images/certificates/java.jpg"
-                         alt="Java Certification">
-                    <span>Java Certification - QTREE Technologies</span>
+                <button class="certificate-card spot reveal" data-lightbox="images/certificates/java.jpg" data-title="Java Certification - QTREE Technologies">
+                    <span class="media" data-placeholder="JAVA"><img src="images/certificates/java.jpg" alt="Java Certification" loading="lazy"></span>
+                    <span class="certificate-label">Java Certification - QTREE Technologies</span>
                 </button>
-
             </div>
-
         </section>
 
 
         <!-- CONTACT -->
         <section class="section contact" id="contact">
-
             <div class="section-heading reveal">
-                <p class="section-label">GET IN TOUCH</p>
+                <p class="section-label">08 / Contact</p>
                 <h2>Let's Build Something <span>Together</span></h2>
-                <p>
-                    Have an opportunity, an idea or just want to connect?
-                    Feel free to reach out.
-                </p>
+                <p>Have an opportunity, an idea or just want to connect? Feel free to reach out.</p>
             </div>
 
-            <div class="contact-content reveal">
-
-                <a href="mailto:sanjayraj2809@gmail.com" class="contact-item">
-                    <span>Email</span>
-                    <strong>sanjayraj2809@gmail.com</strong>
-                </a>
-
-                <a href="tel:+919345284075" class="contact-item">
-                    <span>Phone</span>
-                    <strong>+91 93452 84075</strong>
-                </a>
-
-                <a href="https://wa.me/919345284075"
-                   target="_blank" rel="noopener noreferrer"
-                   class="contact-item">
-                    <span>WhatsApp</span>
-                    <strong>Send a Message</strong>
-                </a>
-
-                <a href="https://www.linkedin.com/in/sanjayraj-ra"
-                   target="_blank" rel="noopener noreferrer"
-                   class="contact-item">
-                    <span>LinkedIn</span>
-                    <strong>Connect with me</strong>
-                </a>
-
-                <a href="https://github.com/SanjayRaj2809"
-                   target="_blank" rel="noopener noreferrer"
-                   class="contact-item">
-                    <span>GitHub</span>
-                    <strong>Explore my projects</strong>
-                </a>
-
+            <div class="contact-content">
+                <a href="mailto:sanjayraj2809@gmail.com" class="contact-item spot reveal"><span>Email</span><strong>sanjayraj2809@gmail.com</strong></a>
+                <a href="tel:+919345284075" class="contact-item spot reveal"><span>Phone</span><strong>+91 93452 84075</strong></a>
+                <a href="https://wa.me/919345284075" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>WhatsApp</span><strong>Send a Message</strong></a>
+                <a href="https://www.linkedin.com/in/sanjayraj-ra" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>LinkedIn</span><strong>Connect with me</strong></a>
+                <a href="https://github.com/SanjayRaj2809" target="_blank" rel="noopener noreferrer" class="contact-item spot reveal"><span>GitHub</span><strong>Explore my projects</strong></a>
             </div>
-
         </section>
 
     </main>
 
 
-    <!-- IMAGE LIGHTBOX -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lightbox-close" id="lightboxClose"
-                aria-label="Close image viewer">&times;</button>
-        <img src="" alt="Expanded image" id="lightboxImage">
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded view" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close viewer">&times;</button>
+        <figure class="lightbox-figure">
+            <div class="media" id="lightboxMedia" data-placeholder="">
+                <img id="lightboxImage" alt="Expanded view">
+            </div>
+            <figcaption>
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxText"></p>
+            </figcaption>
+        </figure>
     </div>
 
 
     <!-- FOOTER -->
     <footer class="footer" id="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#hero" class="logo">SR<span>.</span></a>
+                <p>Exploring, learning and creating one project at a time.</p>
+            </div>
 
-        <h2>Let's Build Something Together</h2>
+            <div class="footer-links">
+                <a href="https://github.com/SanjayRaj2809" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sanjayraj-ra" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:sanjayraj2809@gmail.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                </a>
+            </div>
 
-        <p>
-            Exploring, learning and creating one project at a time.
-        </p>
-
-        <div class="footer-links">
-            <a href="mailto:sanjayraj2809@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/sanjayraj-ra"
-               target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/SanjayRaj2809"
-               target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="#hero" class="back-to-top" id="backToTop">Back to top ↑</a>
         </div>
 
-        <p class="copyright">
-            © <span id="currentYear"></span> SANJAYRAJ RA. All rights reserved.
-        </p>
-
+        <div class="footer-bottom">
+            <p>Built with HTML, CSS &amp; JS | Deployed via GitHub Actions</p>
+            <p>© <span id="currentYear">2026</span> SANJAYRAJ RA. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>
-
 </body>
+
 </html>

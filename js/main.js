@@ -233,6 +233,118 @@
             }
         });
     }
+        /* ---------- Looping video clips (gaming + sports) ---------- */
+    $$(".clip-player").forEach(function (player) {
+        const clips = $$(".clip", player);
+        const tabs = $$(".clip-tab", player);
+        let current = 0;
+        let inView = false;
+
+        const show = function (index) {
+            current = index;
+            clips.forEach(function (clip, n) {
+                const video = $("video", clip);
+                const active = n === index;
+                clip.classList.toggle("active", active);
+                if (tabs[n]) { tabs[n].classList.toggle("active", active); }
+                if (!video) return;
+                if (active) {
+                    video.currentTime = 0;
+                    if (inView && !reduceMotion) { video.play().catch(function () { /* autoplay blocked */ }); }
+                } else {
+                    video.pause();
+                }
+            });
+        };
+
+        const next = function () {
+            for (let step = 1; step <= clips.length; step++) {
+                const n = (current + step) % clips.length;
+                if (!clips[n].classList.contains("is-empty")) { show(n); return; }
+            }
+        };
+
+        clips.forEach(function (clip) {
+            const video = $("video", clip);
+            if (!video) return;
+            video.muted = true;
+            video.addEventListener("ended", next);
+            video.addEventListener("error", function () {
+                clip.classList.add("is-empty");
+                if (clips[current] === clip) { next(); }
+            });
+        });
+
+        tabs.forEach(function (tab, n) {
+            tab.addEventListener("click", function () { show(n); });
+        });
+
+        if ("IntersectionObserver" in window) {
+            new IntersectionObserver(function (entries) {
+                inView = entries[0].isIntersecting;
+                const video = $("video", clips[current]);
+                if (!video) return;
+                if (inView && !reduceMotion) {
+                    video.play().catch(function () { /* autoplay blocked */ });
+                } else {
+                    video.pause();
+                }
+            }, { threshold: 0.25 }).observe(player);
+        }
+    });
+
+    /* ---------- Animated music player ---------- */
+    const musicPlayer = $("#musicPlayer");
+
+    if (musicPlayer) {
+        const tracks = [
+            { title: "Anirudh Mix", sub: "Music is something I enjoy every day." },
+            { title: "Melody Tracks", sub: "Smooth, soulful and on repeat." },
+            { title: "Powerful Bass Beats", sub: "Turn the volume up." }
+        ];
+        const trackTitle = $("#trackTitle");
+        const trackSub = $("#trackSub");
+        const progressBar = $("#progressBar");
+        const playToggle = $("#playToggle");
+        const TRACK_SECONDS = 24;
+        let trackIndex = 0;
+        let progress = 0;
+        let playing = !reduceMotion;
+
+        const renderPlayer = function () {
+            trackTitle.textContent = tracks[trackIndex].title;
+            trackSub.textContent = tracks[trackIndex].sub;
+            musicPlayer.classList.toggle("playing", playing);
+            playToggle.setAttribute("aria-label", playing ? "Pause" : "Play");
+            playToggle.setAttribute("aria-pressed", String(playing));
+        };
+
+        const changeTrack = function (step) {
+            trackIndex = (trackIndex + step + tracks.length) % tracks.length;
+            progress = 0;
+            progressBar.style.width = "0%";
+            renderPlayer();
+        };
+
+        playToggle.addEventListener("click", function () {
+            playing = !playing;
+            renderPlayer();
+        });
+        $("#prevTrack").addEventListener("click", function () { changeTrack(-1); });
+        $("#nextTrack").addEventListener("click", function () { changeTrack(1); });
+
+        setInterval(function () {
+            if (!playing) return;
+            progress += 100 / (TRACK_SECONDS * 4);
+            if (progress >= 100) {
+                changeTrack(1);
+            } else {
+                progressBar.style.width = progress + "%";
+            }
+        }, 250);
+
+        renderPlayer();
+    }
 
     /* ---------- Footer year ---------- */
     const currentYear = $("#currentYear");

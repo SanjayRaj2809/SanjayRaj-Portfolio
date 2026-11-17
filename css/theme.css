@@ -1,0 +1,46 @@
+
+/* =================================
+   DARK THEME
+================================= */
+
+:root {
+    --bg-primary: #080d1a;
+    --bg-secondary: #101a30;
+    --bg-card: #14213d;
+
+    --accent-primary: #168cff;
+    --accent-secondary: #00c8ff;
+
+    --text-primary: #ffffff;
+    --text-secondary: #a9b8d0;
+
+    --font-main: "Segoe UI", Arial, sans-serif;
+
+    --section-padding: 100px;
+    --container-width: 1200px;
+
+    --border-radius: 16px;
+    --transition: 0.3s ease;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* =================================
+   LIGHT THEME
+================================= */
+
+[data-theme="light"] {
+    --bg-primary: #f4f7fc;
+    --bg-secondary: #e8eff9;
+    --bg-card: #ffffff;
+
+    --accent-primary: #0066cc;
+    --accent-secondary: #008ca8;
+
+    --text-primary: #101a30;
+    --text-secondary: #53647d;
+
+    --border-color: rgba(0, 50, 120, 0.12);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}

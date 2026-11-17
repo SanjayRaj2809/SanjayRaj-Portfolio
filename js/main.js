@@ -1,3 +1,4 @@
+
 /* =================================
    MAIN.JS - vanilla JavaScript only
 ================================= */
@@ -10,80 +11,26 @@
     const $ = (selector, scope) => (scope || document).querySelector(selector);
     const $$ = (selector, scope) => Array.from((scope || document).querySelectorAll(selector));
 
-    /* ---------- Typing animation ---------- */
-    /* ---------- Hero bulb and changing typography ---------- */
-
-const heroEffect = $("#heroEffect");
-
-const heroMessages = [
-    {
-        text: "Curiosity sparks creation",
-        style: "motto-tech"
-    },
-    {
-        text: "Ideas become possibilities",
-        style: "motto-serif"
-    },
-    {
-        text: "Learning. Building. Evolving.",
-        style: "motto-bold"
-    },
-    {
-        text: "A little spark can start a big idea",
-        style: "motto-soft"
-    }
-];
-
-if (heroEffect) {
-
-    let mottoIndex = 0;
-
-    function showNextMotto() {
-
-        const item = heroMessages[mottoIndex];
-
-        heroEffect.classList.remove(
-            "motto-tech",
-            "motto-serif",
-            "motto-bold",
-            "motto-soft",
-            "motto-visible"
-        );
-
-        const updateMotto = function () {
-            heroEffect.textContent = item.text;
-            heroEffect.classList.add(item.style);
-            heroEffect.classList.add("motto-visible");
-
-            mottoIndex = (mottoIndex + 1) % heroMessages.length;
-        };
-
-        if (reduceMotion) {
-            updateMotto();
-        } else {
-            setTimeout(updateMotto, 280);
-        }
-    }
-
-    showNextMotto();
-
-    if (!reduceMotion) {
-        setInterval(showNextMotto, 3200);
-    }
-}
-
     /* ---------- Theme toggle (remembers choice) ---------- */
     const themeToggle = $("#themeToggle");
     const themeMeta = $('meta[name="theme-color"]');
 
     const syncTheme = function () {
         const isLight = root.getAttribute("data-theme") === "light";
+
         if (themeToggle) {
             themeToggle.textContent = isLight ? "☾" : "☀";
-            themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+            themeToggle.setAttribute(
+                "aria-label",
+                isLight ? "Switch to dark theme" : "Switch to light theme"
+            );
         }
+
         if (themeMeta) {
-            themeMeta.setAttribute("content", getComputedStyle(root).getPropertyValue("--bg-primary").trim());
+            themeMeta.setAttribute(
+                "content",
+                getComputedStyle(root).getPropertyValue("--bg-primary").trim()
+            );
         }
     };
 
@@ -91,10 +38,17 @@ if (heroEffect) {
         themeToggle.addEventListener("click", function () {
             const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
             root.setAttribute("data-theme", next);
-            try { localStorage.setItem("theme", next); } catch (e) { /* ignore */ }
+
+            try {
+                localStorage.setItem("theme", next);
+            } catch (e) {
+                /* ignore */
+            }
+
             syncTheme();
         });
     }
+
     syncTheme();
 
     /* ---------- Navbar: scroll state, mobile menu, active link ---------- */
@@ -103,11 +57,14 @@ if (heroEffect) {
     const navMenu = $("#navMenu");
 
     window.addEventListener("scroll", function () {
-        if (navbar) { navbar.classList.toggle("scrolled", window.scrollY > 20); }
+        if (navbar) {
+            navbar.classList.toggle("scrolled", window.scrollY > 20);
+        }
     }, { passive: true });
 
     const setMenu = function (open) {
         if (!menuToggle || !navMenu) return;
+
         navMenu.classList.toggle("active", open);
         menuToggle.textContent = open ? "✕" : "☰";
         menuToggle.setAttribute("aria-expanded", String(open));
@@ -117,26 +74,39 @@ if (heroEffect) {
         menuToggle.addEventListener("click", function () {
             setMenu(!navMenu.classList.contains("active"));
         });
+
         $$("a", navMenu).forEach(function (link) {
-            link.addEventListener("click", function () { setMenu(false); });
+            link.addEventListener("click", function () {
+                setMenu(false);
+            });
         });
+
         document.addEventListener("click", function (event) {
-            if (!navbar.contains(event.target)) { setMenu(false); }
+            if (navbar && !navbar.contains(event.target)) {
+                setMenu(false);
+            }
         });
     }
 
-    if ("IntersectionObserver" in window) {
+    if ("IntersectionObserver" in window && navMenu) {
         const links = $$("a", navMenu);
+
         const sectionObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (!entry.isIntersecting) return;
+
                 links.forEach(function (link) {
-                    link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") === "#" + entry.target.id
+                    );
                 });
             });
         }, { rootMargin: "-45% 0px -50% 0px" });
 
-        $$("main > section[id]").forEach(function (section) { sectionObserver.observe(section); });
+        $$("main > section[id]").forEach(function (section) {
+            sectionObserver.observe(section);
+        });
     }
 
     /* ---------- Scroll reveal (staggered) ---------- */
@@ -157,15 +127,20 @@ if (heroEffect) {
             });
         }, { threshold: 0.12 });
 
-        revealElements.forEach(function (element) { revealObserver.observe(element); });
+        revealElements.forEach(function (element) {
+            revealObserver.observe(element);
+        });
     } else {
-        revealElements.forEach(function (element) { element.classList.add("visible"); });
+        revealElements.forEach(function (element) {
+            element.classList.add("visible");
+        });
     }
 
     /* ---------- Cursor spotlight on cards ---------- */
     $$(".spot").forEach(function (card) {
         card.addEventListener("pointermove", function (event) {
             const rect = card.getBoundingClientRect();
+
             card.style.setProperty("--mx", event.clientX - rect.left + "px");
             card.style.setProperty("--my", event.clientY - rect.top + "px");
         });
@@ -175,7 +150,10 @@ if (heroEffect) {
     $$(".toggle-more").forEach(function (button) {
         button.addEventListener("click", function () {
             const card = button.closest(".timeline-card");
+            if (!card) return;
+
             const expanded = card.classList.toggle("expanded");
+
             button.textContent = expanded ? "Show less" : "Show more";
             button.setAttribute("aria-expanded", String(expanded));
         });
@@ -187,7 +165,9 @@ if (heroEffect) {
             const flipped = card.classList.toggle("flipped");
             card.setAttribute("aria-pressed", String(flipped));
         };
+
         card.addEventListener("click", flip);
+
         card.addEventListener("keydown", function (event) {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
@@ -199,9 +179,17 @@ if (heroEffect) {
     /* ---------- Image fallback (shows a placeholder if a photo is missing) ---------- */
     $$(".media img").forEach(function (img) {
         const wrapper = img.closest(".media");
-        const markEmpty = function () { wrapper.classList.add("is-empty"); };
+        if (!wrapper) return;
+
+        const markEmpty = function () {
+            wrapper.classList.add("is-empty");
+        };
+
         img.addEventListener("error", markEmpty);
-        if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) { markEmpty(); }
+
+        if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) {
+            markEmpty();
+        }
     });
 
     /* ---------- Lightbox (images + write-ups) ---------- */
@@ -211,17 +199,30 @@ if (heroEffect) {
     const lightboxTitle = $("#lightboxTitle");
     const lightboxText = $("#lightboxText");
     const lightboxClose = $("#lightboxClose");
+
     let lastFocused = null;
 
     const openLightbox = function (trigger) {
+        if (
+            !lightbox ||
+            !lightboxImage ||
+            !lightboxMedia ||
+            !lightboxTitle ||
+            !lightboxText ||
+            !lightboxClose
+        ) return;
+
         const title = trigger.getAttribute("data-title") || "";
         const text = trigger.getAttribute("data-text") || "";
 
         lastFocused = trigger;
+
         lightboxMedia.classList.remove("is-empty");
         lightboxMedia.setAttribute("data-placeholder", title);
+
         lightboxImage.setAttribute("src", trigger.getAttribute("data-lightbox"));
         lightboxImage.setAttribute("alt", title || "Expanded view");
+
         lightboxTitle.textContent = title;
         lightboxText.textContent = text;
         lightboxText.hidden = !text;
@@ -229,52 +230,84 @@ if (heroEffect) {
         lightbox.classList.add("active");
         lightbox.setAttribute("aria-hidden", "false");
         document.body.classList.add("no-scroll");
+
         lightboxClose.focus();
     };
 
     const closeLightbox = function () {
-        if (!lightbox.classList.contains("active")) return;
+        if (!lightbox || !lightboxImage || !lightbox.classList.contains("active")) {
+            return;
+        }
+
         lightbox.classList.remove("active");
         lightbox.setAttribute("aria-hidden", "true");
         lightboxImage.removeAttribute("src");
+
         document.body.classList.remove("no-scroll");
-        if (lastFocused) { lastFocused.focus(); }
+
+        if (lastFocused) {
+            lastFocused.focus();
+        }
     };
 
-    if (lightbox && lightboxImage) {
+    if (lightbox && lightboxImage && lightboxClose) {
         $$("[data-lightbox]").forEach(function (item) {
-            item.addEventListener("click", function () { openLightbox(item); });
+            item.addEventListener("click", function () {
+                openLightbox(item);
+            });
         });
+
         lightboxClose.addEventListener("click", closeLightbox);
+
         lightbox.addEventListener("click", function (event) {
-            if (event.target === lightbox) { closeLightbox(); }
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
         });
+
         document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") { closeLightbox(); }
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+
             if (event.key === "Tab" && lightbox.classList.contains("active")) {
                 event.preventDefault();
                 lightboxClose.focus();
             }
         });
     }
-        /* ---------- Looping video clips (gaming + sports) ---------- */
+
+    /* ---------- Looping video clips (gaming + sports) ---------- */
     $$(".clip-player").forEach(function (player) {
         const clips = $$(".clip", player);
         const tabs = $$(".clip-tab", player);
+
         let current = 0;
         let inView = false;
 
         const show = function (index) {
             current = index;
+
             clips.forEach(function (clip, n) {
                 const video = $("video", clip);
                 const active = n === index;
+
                 clip.classList.toggle("active", active);
-                if (tabs[n]) { tabs[n].classList.toggle("active", active); }
+
+                if (tabs[n]) {
+                    tabs[n].classList.toggle("active", active);
+                }
+
                 if (!video) return;
+
                 if (active) {
                     video.currentTime = 0;
-                    if (inView && !reduceMotion) { video.play().catch(function () { /* autoplay blocked */ }); }
+
+                    if (inView && !reduceMotion) {
+                        video.play().catch(function () {
+                            /* autoplay blocked */
+                        });
+                    }
                 } else {
                     video.pause();
                 }
@@ -284,32 +317,48 @@ if (heroEffect) {
         const next = function () {
             for (let step = 1; step <= clips.length; step++) {
                 const n = (current + step) % clips.length;
-                if (!clips[n].classList.contains("is-empty")) { show(n); return; }
+
+                if (!clips[n].classList.contains("is-empty")) {
+                    show(n);
+                    return;
+                }
             }
         };
 
         clips.forEach(function (clip) {
             const video = $("video", clip);
             if (!video) return;
+
             video.muted = true;
+
             video.addEventListener("ended", next);
+
             video.addEventListener("error", function () {
                 clip.classList.add("is-empty");
-                if (clips[current] === clip) { next(); }
+
+                if (clips[current] === clip) {
+                    next();
+                }
             });
         });
 
         tabs.forEach(function (tab, n) {
-            tab.addEventListener("click", function () { show(n); });
+            tab.addEventListener("click", function () {
+                show(n);
+            });
         });
 
         if ("IntersectionObserver" in window) {
             new IntersectionObserver(function (entries) {
                 inView = entries[0].isIntersecting;
+
                 const video = $("video", clips[current]);
                 if (!video) return;
+
                 if (inView && !reduceMotion) {
-                    video.play().catch(function () { /* autoplay blocked */ });
+                    video.play().catch(function () {
+                        /* autoplay blocked */
+                    });
                 } else {
                     video.pause();
                 }
@@ -326,40 +375,73 @@ if (heroEffect) {
             { title: "Melody Tracks", sub: "Smooth, soulful and on repeat." },
             { title: "Powerful Bass Beats", sub: "Turn the volume up." }
         ];
+
         const trackTitle = $("#trackTitle");
         const trackSub = $("#trackSub");
         const progressBar = $("#progressBar");
         const playToggle = $("#playToggle");
+
+        const prevTrack = $("#prevTrack");
+        const nextTrack = $("#nextTrack");
+
         const TRACK_SECONDS = 24;
+
         let trackIndex = 0;
         let progress = 0;
         let playing = !reduceMotion;
 
         const renderPlayer = function () {
-            trackTitle.textContent = tracks[trackIndex].title;
-            trackSub.textContent = tracks[trackIndex].sub;
+            if (trackTitle) {
+                trackTitle.textContent = tracks[trackIndex].title;
+            }
+
+            if (trackSub) {
+                trackSub.textContent = tracks[trackIndex].sub;
+            }
+
             musicPlayer.classList.toggle("playing", playing);
-            playToggle.setAttribute("aria-label", playing ? "Pause" : "Play");
-            playToggle.setAttribute("aria-pressed", String(playing));
+
+            if (playToggle) {
+                playToggle.setAttribute("aria-label", playing ? "Pause" : "Play");
+                playToggle.setAttribute("aria-pressed", String(playing));
+            }
         };
 
         const changeTrack = function (step) {
             trackIndex = (trackIndex + step + tracks.length) % tracks.length;
             progress = 0;
-            progressBar.style.width = "0%";
+
+            if (progressBar) {
+                progressBar.style.width = "0%";
+            }
+
             renderPlayer();
         };
 
-        playToggle.addEventListener("click", function () {
-            playing = !playing;
-            renderPlayer();
-        });
-        $("#prevTrack").addEventListener("click", function () { changeTrack(-1); });
-        $("#nextTrack").addEventListener("click", function () { changeTrack(1); });
+        if (playToggle) {
+            playToggle.addEventListener("click", function () {
+                playing = !playing;
+                renderPlayer();
+            });
+        }
+
+        if (prevTrack) {
+            prevTrack.addEventListener("click", function () {
+                changeTrack(-1);
+            });
+        }
+
+        if (nextTrack) {
+            nextTrack.addEventListener("click", function () {
+                changeTrack(1);
+            });
+        }
 
         setInterval(function () {
-            if (!playing) return;
+            if (!playing || !progressBar) return;
+
             progress += 100 / (TRACK_SECONDS * 4);
+
             if (progress >= 100) {
                 changeTrack(1);
             } else {
@@ -372,5 +454,9 @@ if (heroEffect) {
 
     /* ---------- Footer year ---------- */
     const currentYear = $("#currentYear");
-    if (currentYear) { currentYear.textContent = new Date().getFullYear(); }
+
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
+
 })();

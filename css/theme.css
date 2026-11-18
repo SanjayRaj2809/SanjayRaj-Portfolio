@@ -23,6 +23,15 @@
     --nav-bg: rgba(9, 13, 22, 0.72);
     --overlay: rgba(3, 5, 9, 0.9);
     --success: #34d399;
+    /* Skill card glow */
+--skill-border-hover: #4285ff;
+--skill-shadow: rgba(50, 120, 255, 0.16);
+--skill-icon-bg: rgba(55, 115, 220, 0.10);
+--skill-icon-hover-bg: rgba(55, 115, 220, 0.18);
+--skill-icon-glow: rgba(55, 115, 255, 0.25);
+
+/* Hero text flicker */
+--hero-flicker-glow: rgba(75, 145, 255, 0.35);
 
     /* Family section warm sub-palette */
     --warm-bg: #110d0b;
@@ -73,4 +82,14 @@
     --warm-accent-soft: #e08a3c;
     --warm-text-secondary: #7a6552;
     --warm-border: rgba(150, 90, 30, 0.18);
+
+        /* Skill card glow */
+    --skill-border-hover: #1f63e0;
+    --skill-shadow: rgba(31, 99, 224, 0.14);
+    --skill-icon-bg: rgba(31, 99, 224, 0.08);
+    --skill-icon-hover-bg: rgba(31, 99, 224, 0.15);
+    --skill-icon-glow: rgba(31, 99, 224, 0.22);
+
+    /* Hero text flicker */
+    --hero-flicker-glow: rgba(31, 99, 224, 0.30);
 }

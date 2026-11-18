@@ -410,8 +410,9 @@ ul { list-style: none; }
     }
 }
 
+
 /* =====================================
-   SKILL TECHNOLOGY LOGOS
+   SKILL TECHNOLOGY SYMBOLS
 ===================================== */
 
 .skill-card {
@@ -436,21 +437,27 @@ ul { list-style: none; }
     border-radius: var(--radius-sm);
     background: var(--skill-icon-bg);
     margin-bottom: 24px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
     transition: box-shadow var(--transition),
                 background var(--transition);
-}
-
-.skill-icon img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-    display: block;
 }
 
 .skill-card:hover .skill-icon {
     background: var(--skill-icon-hover-bg);
     box-shadow: 0 0 22px var(--skill-icon-glow);
 }
+
+.skill-cpp { font-size: 1.3rem; }
+.skill-java { font-size: 0.9rem; }
+.skill-html { font-size: 1.6rem; }
+.skill-css { font-size: 1.6rem; }
+.skill-js { font-size: 1.25rem; }
+.skill-sql { font-size: 1rem; }
+.skill-git { font-size: 1.1rem; }
+.skill-github { font-size: 1.1rem; }
 
 .skill-card h3 {
     margin-bottom: 8px;
@@ -459,7 +466,7 @@ ul { list-style: none; }
 .skill-card p {
     margin: 0;
 }
-/* Mobile layout */
+
 @media (max-width: 600px) {
     .skills-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -475,12 +482,8 @@ ul { list-style: none; }
         height: 52px;
         margin-bottom: 18px;
     }
-
-    .skill-icon img {
-        width: 32px;
-        height: 32px;
-    }
 }
+
 
 /* HERO TEXT - NATURAL LIGHT FLICKER */
 
